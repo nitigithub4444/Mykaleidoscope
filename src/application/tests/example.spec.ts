@@ -1,18 +1,19 @@
-import { test, expect } from '@playwright/test';
+import {test,request} from "playwright/test";
 
-test('has title', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
+test("apitest", async({page})=>{
 
-  // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Playwright/);
-});
 
-test('get started link', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
+const apiContext = await request.newContext()
+  const apiresponse = apiContext.put("https:www.abc.com", {
 
-  // Click the get started link.
-  await page.getByRole('link', { name: 'Get started' }).click();
+    headers:{
 
-  // Expects page to have a heading with the name of Installation.
-  await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
-});
+      "content-type":"application-json"
+    }
+  })
+
+  
+})
+
+
+aw
