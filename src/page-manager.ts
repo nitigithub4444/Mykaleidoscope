@@ -1,23 +1,34 @@
+import { Page } from "playwright";
+import { Login } from "./userauth/object-repository/login";
 
 export class PageManager{
 
 
-    static obj:PageManager;
+    private static obj:PageManager;
+    login:Login
 
-    private constructor(){
+    private constructor(page:Page){
+
+        this.login = new Login(page)
 
 
 
 
     }
 
-    getPageManagerInstance():PageManager{
+   static getPageManagerInstance(page:Page):PageManager{
 
         if(!PageManager.obj){
-           PageManager.obj = new PageManager();
+           PageManager.obj = new PageManager(page);
         }
         return PageManager.obj
 
     }
+
+    getLoginInstance():Login{
+
+        return this.login;
+    }
+
 
 }
