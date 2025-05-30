@@ -78,7 +78,7 @@ export class SignUp{
 
     async submitButton(){
 
-        await this.submit.click();
+        await this.submit.click()
     }
 
 

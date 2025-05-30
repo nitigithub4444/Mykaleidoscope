@@ -43,7 +43,10 @@ test('SignIn', async({page})=>{
     await signIn.minimumAgeCheckbox();
     expect(signIn.getCheckboxLocator()).toBeChecked();
     await signIn.submitButton();
-    await page.locator
+    await page.waitForLoadState('networkidle')
     expect(page).toHaveURL("https://apply.mykaleidoscope.com/program/a0DTP00000H3PUy2AN/application/start");
 
 })
+
+
+
